@@ -9,7 +9,7 @@ import {
     TouchableOpacity as DefaultTouchableOpacity,
 } from "react-native";
 
-import Colors from "@/constants/Colors";
+import Colors from "@/src/shared/constants/Colors";
 import { useColorScheme } from "./useColorScheme";
 
 type ThemeProps = {
