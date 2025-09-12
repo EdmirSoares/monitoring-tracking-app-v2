@@ -1,5 +1,5 @@
-import { getDailyLocations } from "@/services/MonitoringService";
-import { Route } from "@/types/mapTypes";
+import { getDailyLocations } from "@/src/shared/services/MonitoringService";
+import { Route } from "@/src/shared/types/mapTypes";
 import { useEffect, useRef, useState } from "react";
 import MapView from "react-native-maps";
 

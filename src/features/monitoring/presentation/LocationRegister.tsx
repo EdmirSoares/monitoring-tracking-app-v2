@@ -1,4 +1,4 @@
-import CustomToggleButton from "@/components/CustomToggleButton";
+import CustomToggleButton from "@/src/shared/components/ToggleButtom/CustomToggleButton";
 import { ButtonText, Text, TouchableOpacity } from "@/components/Themed";
 import { useLocationRegister } from "@/src/features/monitoring/presentation/useLocationRegister";
 import { useAuth } from "@/src/shared/providers/AuthProvider";
