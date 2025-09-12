@@ -5,7 +5,7 @@ export const authenticatedInstance = axios.create({
     baseURL: "",
 });
 
-export const defaultInstance = axios.create({
+export const unAuthenticatedInstance = axios.create({
     baseURL: "",
 });
 
