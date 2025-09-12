@@ -8,7 +8,7 @@ import {
     Keyboard,
     ToastAndroid,
 } from "react-native";
-import { TouchableOpacity } from "@/components/Themed";
+import { TouchableOpacity } from "@/src/shared/hooks/useThemeColor";
 import Logo from "@/assets/images/brand/logo.png";
 import React, { useState } from "react";
 import { useAuth } from "@/src/shared/providers/AuthProvider";

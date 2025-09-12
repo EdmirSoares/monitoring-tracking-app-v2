@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity, View } from "@/components/Themed";
+import { Text, TouchableOpacity, View } from "@/src/shared/hooks/useThemeColor";
 import { useMap } from "@/src/features/map/presentation/useMap";
 import { Pressable, StyleSheet } from "react-native";
 import MapView, { Marker, Polyline, PROVIDER_GOOGLE } from "react-native-maps";
