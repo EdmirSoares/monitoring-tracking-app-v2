@@ -1,5 +1,5 @@
 import { authenticatedInstance } from "@/axios-config";
-import { RoutesResponse } from "@/types/mapTypes";
+import { RoutesResponse } from "@/src/shared/types/mapTypes";
 import { ToastAndroid } from "react-native";
 
 export const postRoutes = async (data: any) => {
