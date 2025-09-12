@@ -1,6 +1,6 @@
 // app/(loggedOut)/_layout.tsx
 import { Stack, Redirect } from "expo-router";
-import { useAuth } from "../../Providers/AuthProvider";
+import { useAuth } from "../../src/shared/providers/AuthProvider";
 
 export default function LoggedOutLayout() {
     const { isLoggedIn } = useAuth();

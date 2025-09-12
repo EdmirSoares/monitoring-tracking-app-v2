@@ -1,6 +1,6 @@
 // app/(tabs)/_layout.tsx
 import { Tabs } from "expo-router";
-import { useAuth } from "../../Providers/AuthProvider";
+import { useAuth } from "../../src/shared/providers/AuthProvider";
 import { Redirect } from "expo-router";
 import { FontAwesome5, Ionicons } from "@expo/vector-icons";
 
