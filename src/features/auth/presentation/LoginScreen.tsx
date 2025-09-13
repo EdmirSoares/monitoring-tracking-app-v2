@@ -8,27 +8,24 @@ import {
     Keyboard,
     ToastAndroid,
 } from "react-native";
-import { TouchableOpacity } from "@/src/shared/hooks/useThemeColor";
 import Logo from "@/assets/images/brand/logo.png";
 import React, { useState } from "react";
 import { useAuth } from "@/src/shared/providers/AuthProvider";
+import { TouchableOpacity } from "@/src/shared/components/TouchableOpacity/TouchableOpacity";
 
 export default function LoginScreen() {
-    const { login } = useAuth();
+    const { login, user } = useAuth();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleLogin = () => {
-        if (!email || !password) {
-            ToastAndroid.showWithGravity(
-                "Por favor, preencha todos os campos.",
-                ToastAndroid.SHORT,
-                ToastAndroid.TOP
-            );
-            return;
+    async function handleLogin() {
+        try {
+            await login(email, password);
+            console.log("Usuário logado:", user?.toJSON());
+        } catch (err) {
+            console.error("Erro no login:", err);
         }
-        login(email, password);
-    };
+    }
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
