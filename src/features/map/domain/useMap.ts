@@ -1,4 +1,4 @@
-import { getDailyLocations } from "@/src/shared/services/MonitoringService/MonitoringService";
+import { fetchDailyRoutes } from "../data/mapData";
 import { Route } from "@/src/shared/types/mapTypes";
 import { useEffect, useRef, useState } from "react";
 import MapView from "react-native-maps";
@@ -33,11 +33,9 @@ export function useMap() {
 
     const handleGetDailyLocations = async () => {
         const date = new Date().toISOString().split("T")[0];
-
-        const response = await getDailyLocations(date);
-        console.log("response:", response);
-        setRouteCoordinates(response.routes[0].route);
-        setSelectedRoute(response.routes[0].route[0]);
+        const routes = await fetchDailyRoutes(date);
+        setRouteCoordinates(routes);
+        setSelectedRoute(routes[0]);
     };
 
     const handleChangeRoute = (route: string) => {

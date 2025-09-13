@@ -1,4 +1,4 @@
-import { useMap } from "@/src/features/map/presentation/useMap";
+import { useMap } from "@/src/features/map/domain/useMap";
 import { Pressable, StyleSheet } from "react-native";
 import MapView, { Marker, Polyline, PROVIDER_GOOGLE } from "react-native-maps";
 import { Feather } from "@expo/vector-icons";
