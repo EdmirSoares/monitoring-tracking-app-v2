@@ -1,9 +1,10 @@
 import CustomToggleButton from "@/src/shared/components/ToggleButtom/CustomToggleButton";
-import {  Text, TouchableOpacity } from "@/src/shared/hooks/useThemeColor";
 import { useLocationRegister } from "@/src/features/monitoring/presentation/useLocationRegister";
 import { useAuth } from "@/src/shared/providers/AuthProvider";
 import { View, StyleSheet, Pressable } from "react-native";
 import { ButtonText } from "@/src/shared/components/ButtonText/ButtonText";
+import { Text } from "@/src/shared/components/Text/Text";
+import { TouchableOpacity } from "@/src/shared/components/TouchableOpacity/TouchableOpacity";
 
 export default function LocationScreen() {
     const { logout } = useAuth();

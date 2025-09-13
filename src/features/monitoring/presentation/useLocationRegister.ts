@@ -13,7 +13,7 @@ import {
     markLocationsAsSent,
     revertPendingToUnsent,
 } from "@/src/features/monitoring/data/locationDb";
-import { postRoutes } from "@/src/shared/services/MonitoringService";
+import { postRoutes } from "@/src/shared/services/MonitoringService/MonitoringService";
 import { useAuth } from "@/src/shared/providers/AuthProvider";
 
 const LOCATION_TASK = "background-location-task";
