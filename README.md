@@ -18,24 +18,36 @@ Um aplicativo móvel para rastreamento, monitoramento e sincronização de local
 ```
 app/
   Telas principais e layouts do aplicativo (Expo Router, navegação por abas)
+  (tabs)/, (loggedOut)/
 components/
-  Componentes de UI reutilizáveis
-constants/
-  Constantes globais do app
-Providers/
-  Providers de contexto (ex: AuthProvider)
-database/
-  Lógica do banco de dados local (Expo SQLite)
-hooks/
-  Hooks personalizados do React
-services/
-  Serviços de API e monitoramento (instâncias separadas de axios)
-types/
-  Definições de tipos TypeScript
-utils/
-  Funções utilitárias (ex: decodificação JWT)
+  __tests__/
+  Componentes de UI compartilhados e reutilizáveis
 assets/
-  Fontes e imagens
+  fonts/, images/
+src/
+  design/
+    features/
+      auth/
+        data/        # Acesso a dados (API, armazenamento)
+        domain/      # Lógica de negócio (hooks, modelos)
+        presentation/# Telas e componentes de UI
+      map/
+        data/
+        domain/
+        presentation/
+      monitoring/
+        data/
+        domain/
+        presentation/
+      profile/
+    shared/
+      components/    # Componentes de UI compartilhados
+      constants/     # Constantes globais do app
+      hooks/         # Hooks personalizados do React
+      providers/     # Providers de contexto (ex: AuthProvider)
+      services/      # Serviços de API e monitoramento
+      types/         # Definições de tipos TypeScript
+      utils/         # Funções utilitárias (ex: decodificação JWT)
 ```
 
 ## Primeiros Passos
@@ -121,24 +133,36 @@ A mobile application for tracking, monitoring and sync locations in background, 
 ```
 app/
   Main application screens and layouts (Expo Router, tab navigation)
+  (tabs)/, (loggedOut)/
 components/
-  Reusable UI components
-constants/
-  App-wide constants
-Providers/
-  Context providers (e.g., AuthProvider)
-database/
-  Local database logic (Expo SQLite)
-hooks/
-  Custom React hooks
-services/
-  API and monitoring services (separate axios instances)
-types/
-  TypeScript type definitions
-utils/
-  Utility functions (e.g., JWT decoding)
+  __tests__/
+  Shared and reusable UI components
 assets/
-  Fonts and images
+  fonts/, images/
+src/
+  design/
+    features/
+      auth/
+        data/        # Data access (API, storage)
+        domain/      # Business logic (hooks, models)
+        presentation/# UI screens and components
+      map/
+        data/
+        domain/
+        presentation/
+      monitoring/
+        data/
+        domain/
+        presentation/
+      profile/
+    shared/
+      components/    # Shared UI components
+      constants/     # App-wide constants
+      hooks/         # Custom React hooks
+      providers/     # Context providers (e.g., AuthProvider)
+      services/      # API and monitoring services
+      types/         # TypeScript type definitions
+      utils/         # Utility functions (e.g., JWT decoding)
 ```
 
 ## Getting Started
