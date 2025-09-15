@@ -1,5 +1,5 @@
-import { useThemeColor } from "@/src/shared/hooks/useThemeColor";
-import { ThemeProps } from "../../types/components";
+import { useThemeColor } from "@/src/design/useThemeColor";
+import { ThemeProps } from "../../../shared/types/components";
 import { Text as DefaultText } from "react-native";
 
 type TextProps = ThemeProps & DefaultText["props"];

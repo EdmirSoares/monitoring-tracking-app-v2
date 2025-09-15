@@ -11,7 +11,7 @@ import {
 import Logo from "@/assets/images/brand/logo.png";
 import React, { useState } from "react";
 import { useAuth } from "@/src/shared/providers/AuthProvider";
-import { TouchableOpacity } from "@/src/shared/components/TouchableOpacity/TouchableOpacity";
+import { TouchableOpacity } from "@/src/design/components/TouchableOpacity/TouchableOpacity";
 
 export default function LoginScreen() {
     const { login, user } = useAuth();

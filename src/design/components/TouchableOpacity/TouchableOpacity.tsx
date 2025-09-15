@@ -1,4 +1,4 @@
-import { ThemeProps } from "../../types/components";
+import { ThemeProps } from "../../../shared/types/components";
 import { TouchableOpacity as DefaultTouchableOpacity } from "react-native";
 
 type TouchableOpacityProps = ThemeProps &
