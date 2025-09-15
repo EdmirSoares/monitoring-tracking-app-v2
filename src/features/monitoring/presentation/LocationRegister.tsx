@@ -1,5 +1,5 @@
 import CustomToggleButton from "@/src/shared/components/ToggleButtom/CustomToggleButton";
-import { useLocationRegister } from "@/src/features/monitoring/presentation/useLocationRegister";
+import { useLocationRegister } from "@/src/features/monitoring/domain/useLocationRegister";
 import { useAuth } from "@/src/shared/providers/AuthProvider";
 import { View, StyleSheet, Pressable } from "react-native";
 import { ButtonText } from "@/src/shared/components/ButtonText/ButtonText";
@@ -14,7 +14,6 @@ export default function LocationScreen() {
         isLoading,
         errorMsg,
         isTracking,
-        getCurrentLocation,
         startTracking,
         stopTracking,
         syncLocations,

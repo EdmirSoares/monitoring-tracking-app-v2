@@ -1,20 +1,14 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import * as Location from "expo-location";
 import * as TaskManager from "expo-task-manager";
 import * as BackgroundTask from "expo-background-task";
 import { Alert, Linking, ToastAndroid } from "react-native";
-
 import {
     countUnsentLocations,
-    getUnsentLocations,
-    initLocationDatabase,
     insertLocation,
-    markLocationsAsPending,
-    markLocationsAsSent,
-    revertPendingToUnsent,
 } from "@/src/features/monitoring/data/locationDb";
-import { postRoutes } from "@/src/shared/services/MonitoringService/MonitoringService";
 import { useAuth } from "@/src/shared/providers/AuthProvider";
+import { syncLocations, syncLocationsTask } from "../data/locationData";
 
 const LOCATION_TASK = "background-location-task";
 const SYNC_TASK = "background-sync-task";
@@ -49,34 +43,6 @@ TaskManager.defineTask(LOCATION_TASK, async ({ data, error }) => {
     }
 });
 
-const syncLocationsTask = async () => {
-    const unsent = await getUnsentLocations(100);
-    if (unsent.length === 0) return;
-
-    const ids = unsent.map((l: any) => l.id);
-
-    await markLocationsAsPending(ids);
-
-    try {
-        const formattedData = unsent.map((l: any) => ({
-            latitude: l.latitude,
-            longitude: l.longitude,
-            timestamp: new Date(l.timestamp).toISOString(),
-        }));
-
-        const response = await postRoutes(formattedData);
-
-        if (response) {
-            await markLocationsAsSent(ids);
-        } else {
-            await revertPendingToUnsent(ids);
-        }
-    } catch (error) {
-        console.error("Sync failed:", error);
-
-        await revertPendingToUnsent(ids);
-    }
-};
 
 export function useLocationRegister() {
     const [currentLocation, setCurrentLocation] =
@@ -172,35 +138,6 @@ export function useLocationRegister() {
         }
     };
 
-    const syncLocations = useCallback(async () => {
-        const unsent = await getUnsentLocations(100);
-        if (unsent.length === 0) return;
-
-        const ids = unsent.map((l: any) => l.id);
-
-        await markLocationsAsPending(ids);
-
-        try {
-            const formattedData = unsent.map((l: any) => ({
-                latitude: l.latitude,
-                longitude: l.longitude,
-                timestamp: new Date(l.timestamp).toISOString(),
-            }));
-
-            const response = await postRoutes(formattedData);
-
-            if (response) {
-                await markLocationsAsSent(ids);
-            } else {
-                await revertPendingToUnsent(ids);
-            }
-        } catch (error) {
-            console.error("Sync failed:", error);
-
-            await revertPendingToUnsent(ids);
-        }
-    }, []);
-
     const stopTracking = async () => {
         try {
             const isRegistered = await TaskManager.isTaskRegisteredAsync(
@@ -250,27 +187,7 @@ export function useLocationRegister() {
         };
     }, [isTracking]);
 
-    useEffect(() => {
-        const initializeDb = async () => {
-            try {
-                await initLocationDatabase();
-            } catch (error) {
-                setErrorMsg("Erro ao inicializar banco de dados");
-            }
-        };
-        initializeDb();
-    }, []);
 
-    const getCurrentLocation = async () => {
-        try {
-            const location = await Location.getCurrentPositionAsync({});
-            setCurrentLocation(location);
-            return location;
-        } catch (err) {
-            setErrorMsg("Erro ao obter localização atual");
-            return null;
-        }
-    };
 
     return {
         currentLocation,
@@ -280,6 +197,5 @@ export function useLocationRegister() {
         startTracking,
         stopTracking,
         syncLocations,
-        getCurrentLocation,
     };
 }
