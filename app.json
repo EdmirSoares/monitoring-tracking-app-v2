@@ -48,7 +48,7 @@
             ],
             "config": {
                 "googleMaps": {
-                    "apiKey": "Insert_Your_Google_Maps_API_Key_Here"
+                    "apiKey": "Google_Maps_API_Key"
                 }
             },
             "edgeToEdgeEnabled": true,
