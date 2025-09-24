@@ -1,4 +1,5 @@
-# app-rastreamento-v2 (pt-br)
+# Route Monitoring App (pt-br)
+<img width="2260" height="3060" alt="Route-Monitoring-App" src="https://github.com/user-attachments/assets/7bb1918d-fc5a-4610-8872-65f84a1f2cb5" />
 
 Um aplicativo móvel para rastreamento, monitoramento e sincronização de localizações em segundo plano, construído com Expo, React Native, TypeScript e SQLite.
 
@@ -106,14 +107,12 @@ src/
 - `pnpm start` — Inicia o servidor de desenvolvimento Expo
 
 ## O que está por vir
-- **Integração com Drizzle ORM** para melhor gerenciamento do banco de dados local e segurança de tipos.
+- **Reformulação visual.
 - **Notificações push** para atualizações e alertas em tempo real.
 - **Dashboard analítico avançado** para histórico de atividades e localizações.
 - **Melhorias no tratamento de erros e logs** para maior confiabilidade.
 
 ---
-
-# app-rastreamento-v2
 
 A mobile application for tracking, monitoring and sync locations in background, built with Expo, React Native, TypeScript and SQLite.
 
